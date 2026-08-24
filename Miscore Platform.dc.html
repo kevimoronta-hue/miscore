@@ -162,6 +162,19 @@ svg{display:block}
 @media (max-width:899px){[data-meta-badge]{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;width:fit-content!important;max-width:60%!important;min-height:26px!important;padding:5px 12px!important;font-size:11.5px!important;font-weight:600!important;line-height:1.25!important;border-radius:999px!important;box-sizing:border-box!important;margin-left:auto!important;align-self:center!important}}
 @media (max-width:1040px){[data-navlinks]{display:none!important} [data-hidedesk]{display:flex!important}}
 @media (min-width:1041px){[data-hidedesk]{display:none!important}}
+/* Navbar MOBILE : compacte le CTA WhatsApp (icone d'abord) pour proteger le logo MiScore
+   (jamais reduit) et garder "Empieza ahora" sur une seule ligne. */
+@media (max-width:480px){
+  [data-navbar]{gap:12px!important;padding-right:12px!important}
+  [data-navcta]{height:40px!important;padding:0 7px 0 13px!important;gap:6px!important;font-size:13.5px!important}
+  [data-navwa]{width:20px!important;height:20px!important}
+  [data-navwa] svg{width:11px!important;height:11px!important}
+}
+@media (max-width:360px){
+  [data-navbar]{gap:9px!important;padding-right:10px!important;padding-left:14px!important}
+  [data-navcta]{padding:0 12px!important;gap:0!important}
+  [data-navwa]{display:none!important} /* dernier recours : masque l'icone WA pour ne jamais couvrir le logo */
+}
 [data-mobiletabs]{display:none}
 [data-tablewrap]{overflow-x:auto;-webkit-overflow-scrolling:touch}
 [data-tablewrap] table{min-width:660px}
@@ -581,7 +594,7 @@ svg{display:block}
 
 <a href="#heroForm" data-skiplink="" style="position:absolute;left:-9999px;top:0;z-index:200;padding:12px 18px;background:var(--primary);color:#fff;border-radius:0 0 12px 0;font-size:14px;font-weight:600" style-focus="left:0">Saltar al formulario</a>
 <header style="position:sticky;top:16px;z-index:60;display:flex;justify-content:center;padding:0 16px">
-  <div style="width:100%;max-width:1640px;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.5));backdrop-filter:saturate(180%) blur(32px);-webkit-backdrop-filter:saturate(180%) blur(32px);border:1px solid rgba(255,255,255,.75);border-radius:20px;box-shadow:0 1px 1px rgba(15,23,42,.05),0 12px 40px rgba(15,23,42,.10),0 2px 8px rgba(22,93,255,.05),inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(15,23,42,.04),{{ navShadow }};transition:box-shadow .25s var(--ease);padding:0 16px 0 24px;height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px">
+  <div style="width:100%;max-width:1640px;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.5));backdrop-filter:saturate(180%) blur(32px);-webkit-backdrop-filter:saturate(180%) blur(32px);border:1px solid rgba(255,255,255,.75);border-radius:20px;box-shadow:0 1px 1px rgba(15,23,42,.05),0 12px 40px rgba(15,23,42,.10),0 2px 8px rgba(22,93,255,.05),inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(15,23,42,.04),{{ navShadow }};transition:box-shadow .25s var(--ease);padding:0 16px 0 24px;height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px" data-navbar="">
     <span style="position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(22,93,255,.35),transparent);pointer-events:none"></span>
     <a href="#top" data-navlogo="" style="display:flex;align-items:center;justify-self:start"><img src="uploads/logo-1785621832985.png" alt="miscore" style="height:var(--logo-h);width:auto;margin:-10px 0"></a>
     <nav data-navlinks="" style="display:flex;align-items:center;gap:2px;justify-self:center;white-space:nowrap">
@@ -589,9 +602,9 @@ svg{display:block}
       <a href="#como" data-navitem="como" style="position:relative;color:var(--ink-2);font-size:15px;font-weight:500;padding:9px 14px 12px;border-radius:10px;transition:color .2s var(--ease),background .2s var(--ease)" style-hover="color:var(--ink);background:rgba(255,255,255,.5)">Cómo funciona</a>
       <a href="#faq" data-navitem="faq" style="position:relative;color:var(--ink-2);font-size:15px;font-weight:500;padding:9px 14px 12px;border-radius:10px;transition:color .2s var(--ease),background .2s var(--ease)" style-hover="color:var(--ink);background:rgba(255,255,255,.5)">Preguntas</a>
     </nav>
-    <a href="#heroForm" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:44px;padding:0 8px 0 18px;background:linear-gradient(135deg,#24C25F 0%,#109B4C 100%);border:1px solid rgba(16,155,76,.35);color:#fff;border-radius:14px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 4px 14px rgba(15,168,85,.26),0 12px 24px -8px rgba(15,168,85,.4),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .22s var(--ease),box-shadow .22s var(--ease),opacity .22s var(--ease);justify-self:end" style-hover="transform:translateY(-1px);box-shadow:0 6px 18px rgba(15,168,85,.32),0 16px 28px -8px rgba(15,168,85,.45),inset 0 1px 0 rgba(255,255,255,.35)" style-active="transform:translateY(0)">
+    <a href="#heroForm" data-navcta="" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:44px;padding:0 8px 0 18px;background:linear-gradient(135deg,#24C25F 0%,#109B4C 100%);border:1px solid rgba(16,155,76,.35);color:#fff;border-radius:14px;font-size:14.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 4px 14px rgba(15,168,85,.26),0 12px 24px -8px rgba(15,168,85,.4),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .22s var(--ease),box-shadow .22s var(--ease),opacity .22s var(--ease);justify-self:end" style-hover="transform:translateY(-1px);box-shadow:0 6px 18px rgba(15,168,85,.32),0 16px 28px -8px rgba(15,168,85,.45),inset 0 1px 0 rgba(255,255,255,.35)" style-active="transform:translateY(0)">
       <span data-ctatxt="">Empieza<span> ahora</span></span>
-      <span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;flex:none">
+      <span data-navwa="" style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;flex:none">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.465 3.488"></path></svg>
       </span>
     </a>
