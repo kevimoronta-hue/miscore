@@ -68,28 +68,21 @@ button,input{font-family:inherit}
 svg{display:block}
 /* ===== NAVBAR MOBILE : logo FIXE + CTA WhatsApp adaptatif (texte complet -> bulle icone) ===== */
 @media (max-width:1040px){
-  header > div{padding:0 12px 0 16px!important;gap:10px!important}
+  header{padding:0 12px!important}
+  header > div{padding:0 12px!important;gap:10px!important}
   /* Logo MiScore : taille FIXE = var(--logo-h), identique sur tous les telephones ET egale au footer (ne varie jamais).
      display:block (comme le footer) supprime l'espace inline sous l'image -> hauteur navbar stable Android/iOS. */
-  [data-navlogo] img{display:block!important;height:var(--logo-h)!important;width:auto!important;margin:-10px 0!important;vertical-align:middle!important}
+  [data-navlogo] img{display:block!important;height:56px!important;width:auto!important;margin:-8px 0!important;vertical-align:middle!important}
   /* min-width:0 : empeche le CTA (piste 1fr) de pousser la barre hors du viewport */
   header > div > a:not([data-navlogo]){min-width:0!important}
   [data-hidedesk]{width:44px!important;height:44px!important;border-radius:12px!important}
 }
-/* Assez de place : CTA complet "Empieza ahora" + icone WhatsApp */
-@media (min-width:421px) and (max-width:1040px){
-  [data-navcta]{padding:0 8px 0 16px!important;gap:8px!important;font-size:14px!important}
-  [data-navwa]{width:26px!important;height:26px!important}
-  [data-navwa] svg{width:13px!important;height:13px!important}
-}
-/* Pas assez de place (<=420px) : bulle WhatsApp = icone seule.
-   Le texte "Empieza ahora" est sacrifie ; le logo MiScore et le burger sont proteges. */
-@media (max-width:420px){
-  header > div{padding:0 12px!important}
-  [data-navcta]{width:44px!important;min-width:44px!important;height:44px!important;padding:0!important;gap:0!important;border-radius:50%!important;justify-self:end!important}
-  [data-navcta] [data-ctatxt]{display:none!important}
-  [data-navwa]{width:auto!important;height:auto!important;background:transparent!important;border-radius:0!important}
-  [data-navwa] svg{width:22px!important;height:22px!important}
+/* CTA complet "Empieza ahora" + icone WhatsApp sur TOUTES les largeurs mobiles.
+   Le logo reduit (56px) + la normalisation globale (sous-390 = effectif 390) laissent la place. */
+@media (max-width:1040px){
+  [data-navcta]{padding:0 7px 0 14px!important;gap:7px!important;font-size:14px!important;height:40px!important}
+  [data-navwa]{width:24px!important;height:24px!important}
+  [data-navwa] svg{width:12px!important;height:12px!important}
 }
 @media (max-width:360px){
   header{padding:0 10px!important}
@@ -566,7 +559,7 @@ svg{display:block}
   [data-hero]{padding:32px 16px 40px!important;gap:32px!important}
   [data-herocard]{padding:18px!important}
   [data-ctacard]{padding:32px 20px!important}
-  [data-navlogo] img{display:block!important;height:var(--logo-h)!important;width:auto!important;margin:-10px 0!important;vertical-align:middle!important} /* logo navbar FIXE = var(--logo-h), egal au footer, display:block = pas d'espace inline */
+  [data-navlogo] img{display:block!important;height:56px!important;width:auto!important;margin:-8px 0!important;vertical-align:middle!important} /* logo navbar FIXE = var(--logo-h), egal au footer, display:block = pas d'espace inline */
   [data-full]{width:100%!important;justify-content:center!important}
   [data-authsplit]{grid-template-columns:1fr!important}
 }
