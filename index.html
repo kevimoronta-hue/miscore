@@ -59,8 +59,8 @@ svg{display:block}
 /* ===== NAVBAR MOBILE : logo FIXE + CTA WhatsApp adaptatif (texte complet -> bulle icone) ===== */
 @media (max-width:1040px){
   header > div{padding:0 12px 0 16px!important;gap:10px!important}
-  /* Logo MiScore : hauteur FIXE, identique sur TOUS les telephones (ne varie jamais) */
-  [data-navlogo] img{height:46px!important;margin:-4px 0!important}
+  /* Logo MiScore : taille FIXE = var(--logo-h), identique sur tous les telephones ET egale au footer (ne varie jamais) */
+  [data-navlogo] img{height:var(--logo-h)!important;margin:-10px 0!important}
   /* min-width:0 : empeche le CTA (piste 1fr) de pousser la barre hors du viewport */
   header > div > a:not([data-navlogo]){min-width:0!important}
   [data-hidedesk]{width:44px!important;height:44px!important;border-radius:12px!important}
@@ -162,6 +162,13 @@ svg{display:block}
   [data-faq-container]{max-width:1100px!important;margin:0 auto!important}
 }
 @media (max-width:380px){[data-comogrid]{grid-template-columns:1fr!important}}
+/* Fix CROP mobile (Hero->stats) : [data-herotop] est un grid dont la colonne prenait la
+   min-content du mockup (~374px) et debordait a droite, coupe par overflow-x:clip du body.
+   minmax(0,1fr) + min-width:0 laissent la colonne et ses items rentrer dans le viewport. */
+@media (max-width:899px){
+  [data-herotop]{min-width:0!important;grid-template-columns:minmax(0,1fr)!important}
+  [data-herotop] > *{min-width:0!important}
+}
 /* Badges Meta — composant unique sur MOBILE uniquement (desktop = min-width:900px, intact) */
 @media (max-width:899px){[data-meta-badge]{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;width:fit-content!important;max-width:60%!important;min-height:26px!important;padding:5px 12px!important;font-size:11.5px!important;font-weight:600!important;line-height:1.25!important;border-radius:999px!important;box-sizing:border-box!important;margin-left:auto!important;align-self:center!important}}
 @media (max-width:1040px){[data-navlinks]{display:none!important} [data-hidedesk]{display:flex!important}}
@@ -543,7 +550,7 @@ svg{display:block}
   [data-hero]{padding:32px 16px 40px!important;gap:32px!important}
   [data-herocard]{padding:18px!important}
   [data-ctacard]{padding:32px 20px!important}
-  [data-navlogo] img{height:46px!important;margin:-4px 0!important} /* logo navbar FIXE (identique sur tous les telephones) */
+  [data-navlogo] img{height:var(--logo-h)!important;margin:-10px 0!important} /* logo navbar FIXE = var(--logo-h), egal au footer */
   [data-full]{width:100%!important;justify-content:center!important}
   [data-authsplit]{grid-template-columns:1fr!important}
 }
