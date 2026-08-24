@@ -170,6 +170,11 @@ svg{display:block}
   [data-herotop]{min-width:0!important;grid-template-columns:minmax(0,1fr)!important}
   [data-herotop] > *{min-width:0!important}
 }
+/* Gutter mobile partage = axe X du logo navbar (header pad + border + inner pad).
+   Le logo footer s'aligne dessus pour tomber sur le meme axe vertical quelle que soit la largeur. */
+:root{--mobile-page-gutter:33px}
+@media (max-width:420px){:root{--mobile-page-gutter:29px}}
+@media (max-width:360px){:root{--mobile-page-gutter:21px}}
 /* Badges Meta — composant unique sur MOBILE uniquement (desktop = min-width:900px, intact) */
 @media (max-width:899px){[data-meta-badge]{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;width:fit-content!important;max-width:60%!important;min-height:26px!important;padding:5px 12px!important;font-size:11.5px!important;font-weight:600!important;line-height:1.25!important;border-radius:999px!important;box-sizing:border-box!important;margin-left:auto!important;align-self:center!important}}
 @media (max-width:1040px){[data-navlinks]{display:none!important} [data-hidedesk]{display:flex!important}}
@@ -538,6 +543,22 @@ svg{display:block}
   [data-etiqueta] div:first-child span:first-child{font-size:clamp(10px,2.9vw,12px)!important;font-weight:700!important}
   [data-etiqueta] div:first-child span:last-child{font-size:clamp(8px,2.2vw,9.5px)!important}
   [data-etiqueta] span,[data-etiqueta] strong{font-size:clamp(9px,2.6vw,11px)!important}
+}
+/* TRES PETITS ECRANS (<=384px) : variante compacte des etiquettes (meme design/couleur/identite).
+   Sur telephone etroit padding/police/icone atteignent leurs minimums -> les etiquettes
+   deviennent trop grosses et recouvrent les messages. Ici : collees aux bords + plus compactes.
+   Le rendu >=385px (mobile normal valide) reste inchange. */
+@media (max-width:384px){
+  [data-saludtag]{left:-7%!important;width:41%!important;bottom:12%!important}
+  [data-saludtag]>div{padding:7px 8px!important;gap:8px!important}
+  [data-saludtag]>div>div:first-child{width:clamp(30px,9vw,36px)!important;height:clamp(30px,9vw,36px)!important}
+  [data-saludtag]>div>div:last-child>div:first-child{font-size:clamp(7.5px,2.1vw,9px)!important}
+  [data-saludtag]>div>div:last-child span{font-size:clamp(9px,2.6vw,11px)!important}
+  [data-saludtag] p{font-size:clamp(7.5px,2.1vw,9px)!important;line-height:1.2!important}
+  [data-etiqueta]{right:-7%!important;width:39%!important;bottom:12%!important;padding:6px 8px!important}
+  [data-etiqueta] div:first-child span:first-child{font-size:clamp(9px,2.6vw,11px)!important}
+  [data-etiqueta] div:first-child span:last-child{font-size:clamp(7px,2vw,8.5px)!important}
+  [data-etiqueta] span,[data-etiqueta] strong{font-size:clamp(8px,2.3vw,10px)!important}
 }
 /* 900–1199 : deux colonnes mais pas de débord — le téléphone occupe toute sa
    colonne (jusqu'au plafond de 440px), les étiquettes restent dans le stage. */
@@ -2580,7 +2601,7 @@ svg{display:block}
 /* ===== FOOTER MOBILE (<980px) — reference dediee, meme composition de 320 a 979 ===== */
 @container (max-width:979px){
   [data-fxplate]{padding-top:clamp(30px,7cqw,54px);padding-bottom:clamp(18px,3cqw,26px)}
-  [data-fxbrand]{text-align:left;display:flex;flex-direction:column;align-items:flex-start;margin-left:calc(41px + var(--logo-h) * .2455 - var(--fxpad));margin-bottom:clamp(22px,7cqw,44px)}
+  [data-fxbrand]{text-align:left;display:flex;flex-direction:column;align-items:flex-start;margin-left:calc(var(--mobile-page-gutter) + var(--logo-h) * .2455 - var(--fxpad));margin-bottom:clamp(22px,7cqw,44px)}
   [data-fxlogo]{--fxlogo-h:var(--logo-h)}
   [data-fxtag]{font-size:clamp(15px,4.1cqw,20px);margin-top:clamp(10px,2.6cqw,18px)}
   [data-fxrule]{justify-content:flex-start;margin-top:clamp(14px,3.6cqw,24px)}
