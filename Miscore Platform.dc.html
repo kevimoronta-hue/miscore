@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://miscore.app/uploads/logo-1785621832985.png">
 <meta name="twitter:title" content="miscore · Ordena tu dinero por WhatsApp y construye tu historial">
 <meta name="twitter:description" content="Registra lo que ganas y lo que gastas por WhatsApp. miscore lo ordena, sigue tus metas y construye tu historial financiero. Sin banco, sin papeles, sin apps nuevas.">
-<link rel="icon" href="uploads/logo-1785621832985.png">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://miscore.app/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fast.wistia.com" crossorigin="">
@@ -3134,6 +3134,8 @@ class Component extends DCLogic {
       onSubmit: () => {
         if (this.state.loading || this.state.submitted) return; // anti double-envoi
         if (digits.length !== 10) { this.setState({ error: true, netError: false }); return; }
+        // Ouvre WhatsApp vers le numero officiel miscore ; le numero saisi part dans le message.
+        try { window.open("https://wa.me/18098416564?text=" + encodeURIComponent("Hola miscore, quiero empezar a construir mi historial. Mi WhatsApp: +1" + digits), "_blank"); } catch (e) {}
         this.setState({ loading: true, error: false, netError: false });
         const done = () => {
           this.setState({ loading: false, submitted: true, toast: true });
