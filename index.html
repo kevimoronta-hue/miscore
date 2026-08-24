@@ -3356,10 +3356,15 @@ class Component extends DCLogic {
             const exit = document.exitFullscreen || document.webkitExitFullscreen;
             if (exit) exit.call(document);
           } else {
-            const req = box.requestFullscreen || box.webkitRequestFullscreen || box.webkitRequestFullScreen;
+            // Requete DIRECTE dans le tap (gesture preserve, requis Android/Chromium).
+            // Variantes standard + prefixees pour Chrome Android / Samsung Internet.
+            const req = box.requestFullscreen || box.webkitRequestFullscreen || box.webkitRequestFullScreen || box.mozRequestFullScreen || box.msRequestFullscreen;
             if (req) {
-              const p = req.call(box);
-              if (p && p.catch) p.catch(iosVideoFs); // promesse rejetee -> fallback
+              let p;
+              // navigationUI:"hide" -> vrai plein ecran mobile (barre nav masquee).
+              try { p = req.call(box, { navigationUI: "hide" }); }
+              catch(_) { p = req.call(box); }
+              if (p && p.catch) p.catch(iosVideoFs); // promesse rejetee -> fallback video natif
             } else {
               iosVideoFs();
             }
