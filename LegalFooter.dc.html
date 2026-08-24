@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+[data-fx]{background:linear-gradient(158deg,#FCFDFE 0%,#F6F8FC 46%,#F1F4F9 100%);padding:0}
+[data-fxplate]{container-type:inline-size;position:relative;overflow:hidden;max-width:1672px;margin:0 auto;--fxpad:54px;padding:clamp(22px,2.4cqw,44px) var(--fxpad) clamp(16px,1.1cqw,20px)}
+[data-fxwave],[data-fxwave2]{-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 42%,transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 42%,transparent 100%);position:absolute;left:0;bottom:clamp(30px,2.8cqw,52px);width:clamp(300px,48%,780px);height:clamp(70px,5.8cqw,108px);pointer-events:none;z-index:0}
+[data-fxwave2]{display:none}
+[data-fxgrid]{position:relative;z-index:1;display:grid;grid-template-columns:1fr;grid-template-areas:"brand" "nav1" "pb";gap:0}
+[data-fxbrand]{grid-area:brand}
+[data-fxcol]{grid-area:nav1}
+[data-fxpb]{grid-area:pb}
+[data-fxlogo]{--fxlogo-h:var(--logo-h,72px);display:inline-flex;align-items:center;margin:calc(var(--fxlogo-h) * -.3077) 0 calc(var(--fxlogo-h) * -.355) calc(var(--fxlogo-h) * -.2455)}
+[data-fxlogo] img{height:var(--fxlogo-h);width:auto;display:block}
+[data-fxtag]{margin:clamp(12px,.9cqw,16px) 0 0;font-size:clamp(15px,1.05cqw,18.5px);line-height:1.36;font-weight:500;letter-spacing:-.015em;color:#334A6B}
+[data-fxtag] strong{font-weight:700;color:#165DFF}
+[data-fxrule]{display:flex;align-items:center;gap:7px;margin-top:clamp(11px,.85cqw,15px)}
+[data-fxrule] i{display:block;width:clamp(46px,3.2cqw,54px);height:2px;border-radius:2px;background:linear-gradient(90deg,#165DFF 0%,#165DFF 55%,#FF8A00 100%)}
+[data-fxrule] b{display:block;width:4px;height:4px;border-radius:50%;background:#FF8A00}
+[data-fxcol]{display:grid;align-content:start}
+[data-fxrow]{display:flex;align-items:center;gap:clamp(10px,.78cqw,13px);padding:clamp(10px,1.12cqw,19px) 0;border-bottom:1px solid rgba(22,60,140,.10);transition:color .2s cubic-bezier(.22,1,.36,1)}
+[data-fxcol] [data-fxrow]:last-child{border-bottom:0}
+[data-fxico]{flex:none;width:clamp(19px,1.2cqw,22px);height:clamp(19px,1.2cqw,22px);color:#165DFF;display:block}
+[data-fxico] svg{width:100%;height:100%;display:block}
+[data-fxlabel]{font-size:clamp(13.5px,.74cqw,16px);font-weight:600;letter-spacing:-.012em;color:#152A4E;line-height:1.3}
+[data-fxrow]:hover [data-fxlabel]{color:#165DFF}
+[data-fxpb]{display:flex;align-items:center;gap:clamp(10px,.7cqw,13px);margin-top:clamp(13px,1cqw,17px)}
+[data-fxpblabel]{font-size:clamp(10px,.64cqw,12.5px);font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#5A6E8C;white-space:nowrap}
+[data-fxpbsep]{width:1px;align-self:stretch;min-height:20px;background:rgba(22,60,140,.16)}
+[data-fxpb] img{height:clamp(30px,2.3cqw,38px);width:auto;display:block}
+[data-fxhair]{position:relative;z-index:1;display:flex;align-items:center;margin-top:clamp(20px,2.2cqw,40px)}
+[data-fxline]{flex:1;height:1px;background:rgba(22,60,140,.12)}
+[data-fxdotb],[data-fxdoto]{width:6px;height:6px;border-radius:50%;flex:none}
+[data-fxdotb]{background:#165DFF}
+[data-fxdoto]{background:#FF8A00}
+[data-fxcopy]{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:7px;margin:clamp(11px,.9cqw,16px) 0 0;font-size:clamp(12px,.63cqw,14px);font-weight:500;color:#5D708F;text-align:center}
+[data-fxsep]{color:#FF8A00;font-weight:700}
+@container (min-width:980px){
+  [data-fxgrid]{grid-template-columns:1fr 1.1fr;grid-template-areas:"brand nav1" "pb nav1";grid-template-rows:auto auto;align-items:stretch}
+  [data-fxpb]{align-self:end}
+  [data-fxcol]{border-left:1px solid rgba(22,60,140,.10);padding-left:clamp(18px,1.6cqw,30px);margin-left:clamp(18px,1.6cqw,30px);align-content:center}
+}
+@container (max-width:979px){
+  [data-fxplate]{padding-top:clamp(30px,7cqw,54px);padding-bottom:clamp(18px,3cqw,26px)}
+  [data-fxbrand]{display:flex;flex-direction:column;align-items:flex-start;margin-left:calc(41px + var(--logo-h,72px) * .2455 - var(--fxpad));margin-bottom:clamp(22px,7cqw,44px)}
+  [data-fxtag]{font-size:clamp(15px,4.1cqw,20px);margin-top:clamp(10px,2.6cqw,18px)}
+  [data-fxrule]{margin-top:clamp(14px,3.6cqw,24px)}
+  [data-fxrule] i{width:clamp(58px,17cqw,90px)}
+  [data-fxrow]{gap:clamp(10px,3cqw,18px);padding:clamp(12px,3.2cqw,22px) 0}
+  [data-fxico]{width:clamp(34px,9.6cqw,50px);height:clamp(34px,9.6cqw,50px);border-radius:clamp(10px,2.8cqw,15px);background:#fff;display:grid;place-items:center;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(15,23,42,.04),0 8px 18px -12px rgba(22,60,140,.4)}
+  [data-fxico] svg{width:56%;height:56%}
+  [data-fxlabel]{font-size:clamp(13px,3.5cqw,16px);line-height:1.25}
+  [data-fxpb]{justify-content:center;margin-top:clamp(28px,9cqw,56px);gap:clamp(11px,3.2cqw,18px)}
+  [data-fxpb]::before,[data-fxpb]::after{content:"";height:1px;width:clamp(26px,9cqw,64px);background:rgba(22,60,140,.16);flex:none}
+  [data-fxpb] img{height:clamp(39px,10.8cqw,52px)}
+  [data-fxpblabel]{font-size:clamp(9.5px,2.6cqw,12px)}
+  [data-fxpbsep]{display:none}
+  [data-fxwave],[data-fxwave2]{bottom:clamp(34px,9cqw,64px);width:clamp(210px,66%,560px);height:clamp(118px,32cqw,190px)}
+  [data-fxwave2]{display:block;left:auto;right:0;transform:scaleX(-1)}
+  [data-fxhair]{margin-top:clamp(22px,5.6cqw,40px)}
+  [data-fxcopy]{font-size:clamp(11px,3cqw,13.5px)}
+}
+@media (max-width:640px){
+  [data-fxplate]{--fxpad:40px}
+}
+</style>
+</helmet>
+<footer data-fx="">
+  <div data-fxplate="">
+    <svg data-fxwave="" aria-hidden="true" viewBox="0 0 1000 250" preserveAspectRatio="none"><path d="M0 10.0 C 170 36.0, 540 94.0, 1000 148.0" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 30.7 C 182 54.4, 553 107.6, 1000 156.7" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 51.5 C 194 72.7, 565 121.3, 1000 165.5" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 72.2 C 205 91.1, 578 134.9, 1000 174.2" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 92.9 C 217 109.5, 591 148.5, 1000 182.9" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 113.6 C 229 127.8, 604 162.2, 1000 191.6" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 134.4 C 241 146.2, 616 175.8, 1000 200.4" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 155.1 C 253 164.5, 629 189.5, 1000 209.1" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 175.8 C 265 182.9, 642 203.1, 1000 217.8" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 196.5 C 276 201.3, 655 216.7, 1000 226.5" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 217.3 C 288 219.6, 667 230.4, 1000 235.3" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 238.0 C 300 238.0, 680 244.0, 1000 244.0" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path></svg>
+    <svg data-fxwave2="" aria-hidden="true" viewBox="0 0 1000 250" preserveAspectRatio="none"><path d="M0 10.0 C 170 36.0, 540 94.0, 1000 148.0" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 30.7 C 182 54.4, 553 107.6, 1000 156.7" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 51.5 C 194 72.7, 565 121.3, 1000 165.5" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 72.2 C 205 91.1, 578 134.9, 1000 174.2" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 92.9 C 217 109.5, 591 148.5, 1000 182.9" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 113.6 C 229 127.8, 604 162.2, 1000 191.6" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 134.4 C 241 146.2, 616 175.8, 1000 200.4" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 155.1 C 253 164.5, 629 189.5, 1000 209.1" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 175.8 C 265 182.9, 642 203.1, 1000 217.8" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 196.5 C 276 201.3, 655 216.7, 1000 226.5" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 217.3 C 288 219.6, 667 230.4, 1000 235.3" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path><path d="M0 238.0 C 300 238.0, 680 244.0, 1000 244.0" fill="none" stroke="rgba(22,93,255,0.13)" stroke-width="1"></path></svg>
+    <div data-fxgrid="">
+
+      <div data-fxbrand="">
+        <a href="Miscore%20Platform.dc.html" data-fxlogo="" aria-label="miscore"><img src="uploads/logo-1785621832985.png" alt="miscore"></a>
+        <p data-fxtag="">Tu dinero, tu historial,<br>tu <strong>futuro financiero.</strong></p>
+      </div>
+
+      <nav data-fxcol="" aria-label="Legal">
+        <a href="Privacidad.dc.html" data-fxrow=""><span data-fxico=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.9 5.9v5.9c0 4.4 3 8.1 7.1 9.1 4.1-1 7.1-4.7 7.1-9.1V5.9Z"></path><rect x="9.6" y="11" width="4.8" height="4.4" rx="1.1"></rect><path d="M10.8 11V9.9a1.2 1.2 0 0 1 2.4 0V11"></path></svg></span><span data-fxlabel="">Política de Privacidad</span></a>
+        <a href="Terminos.dc.html" data-fxrow=""><span data-fxico=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 3H7.6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.8a2 2 0 0 0 2-2V7.3Z"></path><path d="M14.2 3v4.3h4.2"></path><path d="M9 12.6h6"></path><path d="M9 16.2h4"></path></svg></span><span data-fxlabel="">Términos de Uso</span></a>
+      </nav>
+
+      <div data-fxpb=""><span data-fxpblabel="">Powered by</span><span data-fxpbsep=""></span><img src="assets/scalia-logo.png" alt="Scalia"></div>
+
+    </div>
+
+    <div data-fxhair="" aria-hidden="true"><span data-fxdotb=""></span><span data-fxline=""></span><span data-fxdoto=""></span></div>
+    <p data-fxcopy="">© 2026 Grupo Nimo SRL<span data-fxsep="" aria-hidden="true">·</span>República Dominicana</p>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

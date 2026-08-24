@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+/* fixed plutot que sticky : le point de montage du composant ne fait que la
+   hauteur de la barre, donc un sticky y disparaitrait des le premier scroll.
+   La hauteur est compensee par un padding-top sur le body. */
+body{padding-top:104px}
+[data-lnav]{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:center;padding:16px 16px 0;pointer-events:none}
+[data-lnavbar]{pointer-events:auto}
+[data-lnavbar]{width:100%;max-width:1640px;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.5));backdrop-filter:saturate(180%) blur(32px);-webkit-backdrop-filter:saturate(180%) blur(32px);border:1px solid rgba(255,255,255,.75);border-radius:20px;box-shadow:0 1px 1px rgba(15,23,42,.05),0 12px 40px rgba(15,23,42,.10),0 2px 8px rgba(22,93,255,.05),inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(15,23,42,.04);padding:0 16px 0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+[data-lnavhair]{position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(22,93,255,.35),transparent);pointer-events:none}
+[data-lnavlogo]{display:flex;align-items:center}
+[data-lnavlogo] img{height:var(--logo-h,72px);width:auto;margin:-10px 0;display:block}
+[data-lnavback]{display:inline-flex;align-items:center;gap:9px;height:44px;padding:0 16px;border:1px solid rgba(15,23,42,.13);border-radius:14px;background:rgba(255,255,255,.9);color:#0F172A;font-size:14.5px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 1px 2px rgba(15,23,42,.04),inset 0 1px 0 rgba(255,255,255,.9);transition:background .2s cubic-bezier(.22,1,.36,1),border-color .2s cubic-bezier(.22,1,.36,1),transform .2s cubic-bezier(.22,1,.36,1)}
+[data-lnavback]:hover{background:#fff;border-color:rgba(22,93,255,.35);color:#165DFF;transform:translateY(-1px)}
+[data-lnavback]:active{transform:translateY(0)}
+[data-lnavback] svg{width:17px;height:17px;flex:none}
+@media (max-width:640px){
+  body{padding-top:90px}
+  [data-lnav]{padding:12px 14px 0}
+  [data-lnavbar]{height:66px;border-radius:18px;padding:0 12px 0 18px;gap:12px}
+  [data-lnavback]{height:42px;padding:0 13px;font-size:14px}
+  [data-lnavtxt] span{display:none}
+}
+</style>
+</helmet>
+<header data-lnav="">
+  <div data-lnavbar="">
+    <span data-lnavhair="" aria-hidden="true"></span>
+    <a href="Miscore%20Platform.dc.html" data-lnavlogo="" aria-label="miscore"><img src="uploads/logo-1785621832985.png" alt="miscore"></a>
+    <a href="Miscore%20Platform.dc.html" data-lnavback="" aria-label="Volver a miscore">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
+      <span data-lnavtxt="">Volver<span> a miscore</span></span>
+    </a>
+  </div>
+</header>
+</x-dc>
+</body>
+</html>
