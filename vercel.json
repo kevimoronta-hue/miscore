@@ -1,0 +1,8 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/privacidad", "destination": "/Privacidad.dc.html" },
+    { "source": "/terminos", "destination": "/Terminos.dc.html" }
+  ]
+}
