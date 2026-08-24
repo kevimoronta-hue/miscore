@@ -3163,6 +3163,7 @@ class Component extends DCLogic {
     
     let wistiaApiReady = false;
     let isDraggingScrubber = false;
+    let renderedPlaying = null; // dernier etat Play/Pause reflete dans l'UI (source de verite = video.state)
 
     const svgPlay = '<path d="M5 3l14 9-14 9V3z"/>';
     const svgPause = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>';
@@ -3179,14 +3180,19 @@ class Component extends DCLogic {
       if (!video) return;
       const state = video.state || "beforeplay";
       const isPlaying = (state === "playing");
-      
+
+      // Ne reecrit le DOM que lorsque l'etat Play/Pause change reellement (anti-churn
+      // pour la reconciliation periodique ci-dessous).
+      if (isPlaying === renderedPlaying) return;
+
       const centerBtn = getCenterBtn();
       const centerIcon = getCenterIcon();
       const smallIcon = getSmallIcon();
       const bottomBar = getBottomBar();
       const outer = getOuter();
-      
-      if (!centerBtn) return;
+
+      if (!centerBtn) { renderedPlaying = null; return; } // elements pas encore montes : retente au tick suivant
+      renderedPlaying = isPlaying;
 
       if(isPlaying) {
         centerBtn.style.opacity = '0';
@@ -3328,6 +3334,9 @@ class Component extends DCLogic {
         } catch (err) {
           console.error("[WISTIA] Exception calling togglePlay:", err);
         }
+        // Wistia met a jour video.state de facon synchrone : on reflete immediatement
+        // l'etat REEL confirme par le player (pas une supposition basee sur le clic).
+        updateUIFromState();
       }
       
       // Fullscreen : on passe LE CONTAINER en plein écran (pas le <wistia-player>),
@@ -3347,6 +3356,17 @@ class Component extends DCLogic {
         }
       }
     });
+
+    // ===== RECONCILIATION : source de verite unique = video.state, relue en continu.
+    // Immunise l'UI contre les listeners Wistia devenus inactifs (attaches avant l'upgrade
+    // du web component). Aucune valeur simulee : on ne lit que l'etat reel du player.
+    setInterval(function(){
+      updateUIFromState();
+      const v = getVideo();
+      if (v && typeof v.duration === "number" && v.duration > 0 && !isDraggingScrubber) {
+        updateProgressUI(v.currentTime || 0, v.duration);
+      }
+    }, 150);
 
   })();
 </script>
