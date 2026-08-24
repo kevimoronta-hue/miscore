@@ -46,6 +46,14 @@
    auto mais zoom utilisateur preserve) -> meme font-size CSS = meme taille visuelle iOS/Android. */
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* ===== NORMALISATION MOBILE ETROIT (dont Android <390px) =====
+   La typo et le spacing du site sont en px FIXES (concus pour la densite mobile validee ~390px).
+   Sur un viewport plus etroit, tout est proportionnellement plus gros. On ramene toute la page
+   a la densite de reference via UN scale proportionnel global (pas de patch par composant).
+   Actif uniquement en dessous de 390px -> les iPhone >=390 restent strictement intacts. */
+@media (max-width:389px){
+  [data-sc-name="Root"]{zoom:calc(100vw / 390px)}
+}
 #dc-root{height:auto!important;min-height:100%}
 /* respiration sous la navbar sticky pour toutes les ancres */
 #top,#producto,#score,#como,#faq,#heroForm{scroll-margin-top:104px}
