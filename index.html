@@ -59,8 +59,9 @@ svg{display:block}
 /* ===== NAVBAR MOBILE : logo FIXE + CTA WhatsApp adaptatif (texte complet -> bulle icone) ===== */
 @media (max-width:1040px){
   header > div{padding:0 12px 0 16px!important;gap:10px!important}
-  /* Logo MiScore : taille FIXE = var(--logo-h), identique sur tous les telephones ET egale au footer (ne varie jamais) */
-  [data-navlogo] img{height:var(--logo-h)!important;margin:-10px 0!important}
+  /* Logo MiScore : taille FIXE = var(--logo-h), identique sur tous les telephones ET egale au footer (ne varie jamais).
+     display:block (comme le footer) supprime l'espace inline sous l'image -> hauteur navbar stable Android/iOS. */
+  [data-navlogo] img{display:block!important;height:var(--logo-h)!important;width:auto!important;margin:-10px 0!important;vertical-align:middle!important}
   /* min-width:0 : empeche le CTA (piste 1fr) de pousser la barre hors du viewport */
   header > div > a:not([data-navlogo]){min-width:0!important}
   [data-hidedesk]{width:44px!important;height:44px!important;border-radius:12px!important}
@@ -550,7 +551,7 @@ svg{display:block}
   [data-hero]{padding:32px 16px 40px!important;gap:32px!important}
   [data-herocard]{padding:18px!important}
   [data-ctacard]{padding:32px 20px!important}
-  [data-navlogo] img{height:var(--logo-h)!important;margin:-10px 0!important} /* logo navbar FIXE = var(--logo-h), egal au footer */
+  [data-navlogo] img{display:block!important;height:var(--logo-h)!important;width:auto!important;margin:-10px 0!important;vertical-align:middle!important} /* logo navbar FIXE = var(--logo-h), egal au footer, display:block = pas d'espace inline */
   [data-full]{width:100%!important;justify-content:center!important}
   [data-authsplit]{grid-template-columns:1fr!important}
 }
@@ -594,7 +595,7 @@ svg{display:block}
 <header style="position:sticky;top:16px;z-index:60;display:flex;justify-content:center;padding:0 16px">
   <div style="width:100%;max-width:1640px;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.5));backdrop-filter:saturate(180%) blur(32px);-webkit-backdrop-filter:saturate(180%) blur(32px);border:1px solid rgba(255,255,255,.75);border-radius:20px;box-shadow:0 1px 1px rgba(15,23,42,.05),0 12px 40px rgba(15,23,42,.10),0 2px 8px rgba(22,93,255,.05),inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(15,23,42,.04),{{ navShadow }};transition:box-shadow .25s var(--ease);padding:0 16px 0 24px;height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px" data-navbar="">
     <span style="position:absolute;top:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(22,93,255,.35),transparent);pointer-events:none"></span>
-    <a href="#top" data-navlogo="" style="display:flex;align-items:center;justify-self:start"><img src="uploads/logo-1785621832985.png" alt="miscore" style="height:var(--logo-h);width:auto;margin:-10px 0"></a>
+    <a href="#top" data-navlogo="" style="display:flex;align-items:center;justify-self:start;line-height:0"><img src="uploads/logo-1785621832985.png" alt="miscore" style="display:block;height:var(--logo-h);width:auto;margin:-10px 0;vertical-align:middle"></a>
     <nav data-navlinks="" style="display:flex;align-items:center;gap:2px;justify-self:center;white-space:nowrap">
       <a href="#producto" data-navitem="producto" style="position:relative;color:var(--ink-2);font-size:15px;font-weight:500;padding:9px 14px 12px;border-radius:10px;transition:color .2s var(--ease),background .2s var(--ease)" style-hover="color:var(--ink);background:rgba(255,255,255,.5)">Para quién ?</a>
       <a href="#como" data-navitem="como" style="position:relative;color:var(--ink-2);font-size:15px;font-weight:500;padding:9px 14px 12px;border-radius:10px;transition:color .2s var(--ease),background .2s var(--ease)" style-hover="color:var(--ink);background:rgba(255,255,255,.5)">Cómo funciona</a>
