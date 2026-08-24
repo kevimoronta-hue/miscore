@@ -177,6 +177,11 @@ svg{display:block}
    Le logo footer s'aligne dessus pour tomber sur le meme axe vertical quelle que soit la largeur. */
 :root{--mobile-page-gutter:25px}
 @media (max-width:360px){:root{--mobile-page-gutter:21px}}
+/* MOBILE : centrer TOUS les titres de sections (uniquement les titres, pas les paragraphes/cartes).
+   margin auto centre aussi les titres qui ont un max-width. Desktop >=900px inchange. */
+@media (max-width:899px){
+  [data-sec-title]{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+}
 /* Badges Meta — composant unique sur MOBILE uniquement (desktop = min-width:900px, intact) */
 @media (max-width:899px){[data-meta-badge]{display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;width:fit-content!important;max-width:60%!important;min-height:26px!important;padding:5px 12px!important;font-size:11.5px!important;font-weight:600!important;line-height:1.25!important;border-radius:999px!important;box-sizing:border-box!important;margin-left:auto!important;align-self:center!important}}
 @media (max-width:1040px){[data-navlinks]{display:none!important} [data-hidedesk]{display:flex!important}}
@@ -636,7 +641,7 @@ svg{display:block}
   <div data-hero="" style="position:relative;max-width:1200px;margin:0 auto;padding:88px 24px 80px;display:grid;gap:52px">
     <div data-herotop="" style="display:grid;gap:44px;animation:revealIn .7s var(--ease) both">
     <div>
-<h1 style="font-size:clamp(44px,5.8vw,72px);letter-spacing:-.04em;line-height:1.02;margin-bottom:24px;text-wrap:balance">Por fin sabrás a dónde se va <span style="color:var(--primary);white-space:nowrap;display:inline-block;position:relative;animation:wordFadeUp .7s var(--ease) .3s both">tu dinero<span style="position:absolute;left:0;right:0;bottom:.06em;height:3px;background:var(--primary);opacity:.35;transform-origin:left;animation:wordRule .7s var(--ease) .95s both"></span></span>.</h1>
+<h1 data-sec-title="" style="font-size:clamp(44px,5.8vw,72px);letter-spacing:-.04em;line-height:1.02;margin-bottom:24px;text-wrap:balance">Por fin sabrás a dónde se va <span style="color:var(--primary);white-space:nowrap;display:inline-block;position:relative;animation:wordFadeUp .7s var(--ease) .3s both">tu dinero<span style="position:absolute;left:0;right:0;bottom:.06em;height:3px;background:var(--primary);opacity:.35;transform-origin:left;animation:wordRule .7s var(--ease) .95s both"></span></span>.</h1>
       <p style="font-size:19px;line-height:1.55;color:var(--ink-2);max-width:46ch;margin-bottom:36px;text-wrap:pretty">Registra lo que ganas y lo que gastas por WhatsApp. miscore lo ordena, sigue tus metas y construye la reputación que el sistema financiero <span style="color:var(--primary)">todavía no tiene de ti</span>.</p>
 
             <div id="heroForm" data-herocard="" style="scroll-margin-top:110px;background:#FFFFFF;border:1px solid rgba(15,23,42,.08);border-radius:28px;box-shadow:0 8px 24px rgba(15,23,42,.03), 0 20px 40px -10px rgba(22,93,255,.06), inset 0 1px 0 #FFFFFF;padding:24px 20px 20px;max-width:540px;position:relative;z-index:2;margin-bottom:24px;width:100%">
@@ -1218,7 +1223,7 @@ svg{display:block}
   <div style="animation:revealIn .6s var(--ease) both;animation-timeline:view();animation-range:entry 0% cover 22%">
     <div style="max-width:none;margin-bottom:40px" data-producto-title="">
       <div style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:18px">Para quién es</div>
-      <h2 style="font-size:clamp(32px,4.2vw,54px);letter-spacing:-.03em;text-wrap:balance;margin-bottom:16px">Mueves dinero todos los días. El sistema todavía no lo ve.</h2>
+      <h2 data-sec-title="" style="font-size:clamp(32px,4.2vw,54px);letter-spacing:-.03em;text-wrap:balance;margin-bottom:16px">Mueves dinero todos los días. El sistema todavía no lo ve.</h2>
       <p style="font-size:17px;color:var(--ink-2)">Sin banco, sin papeles, sin empresa formal. Si generas ingresos, ya tienes con qué empezar.</p>
     </div>
     <div data-perfil-grid="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px">
@@ -1419,7 +1424,7 @@ svg{display:block}
 
   <div style="max-width:none;margin-bottom:48px;position:relative;z-index:2" data-qué-title="">
     <div style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:18px">Qué resuelve</div>
-    <h2 style="font-size:clamp(32px,4.2vw,54px);letter-spacing:-.03em;text-wrap:balance">Primero orden. Después metas. El score llega solo.</h2>
+    <h2 data-sec-title="" style="font-size:clamp(32px,4.2vw,54px);letter-spacing:-.03em;text-wrap:balance">Primero orden. Después metas. El score llega solo.</h2>
   </div>
 
   <div class="miscore-premium-grid" style="animation:revealIn .6s var(--ease) both;animation-timeline:view();animation-range:entry 0% cover 22%">
@@ -1565,7 +1570,7 @@ svg{display:block}
     </div>
 
     <div data-waz-copy="">
-      <h2 style="font-size:clamp(34px,4.4vw,56px);line-height:1.05;letter-spacing:-.035em;margin-bottom:22px;text-wrap:balance">Ya no más apps <br>si tienes <span style="position:relative;white-space:nowrap;color:var(--primary)">WhatsApp<svg viewBox="0 0 200 12" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-.16em;width:100%;height:.28em"><path d="M3 8 C 50 2, 150 2, 197 7" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"></path></svg></span>.</h2>
+      <h2 data-sec-title="" style="font-size:clamp(34px,4.4vw,56px);line-height:1.05;letter-spacing:-.035em;margin-bottom:22px;text-wrap:balance">Ya no más apps <br>si tienes <span style="position:relative;white-space:nowrap;color:var(--primary)">WhatsApp<svg viewBox="0 0 200 12" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:-.16em;width:100%;height:.28em"><path d="M3 8 C 50 2, 150 2, 197 7" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"></path></svg></span>.</h2>
       <p style="font-size:17.5px;line-height:1.6;color:var(--ink-2);max-width:52ch;margin-bottom:32px;text-wrap:pretty">Olvídate de formularios eternos. Habla con miscore como hablas con un amigo. Registra ingresos, gastos, o cualquier otra transacción que realices con tu dinero con solo una imagen, mensaje de texto o audio.</p>
       <div style="display:flex;flex-direction:column">
         <sc-for list="{{ wazBenefits }}" as="b" hint-placeholder-count="5">
@@ -1595,7 +1600,7 @@ svg{display:block}
       <div style="font-size:14px;line-height:1.3;color:rgba(255,255,255,.68);max-width:22ch">+500 personas ya construyen su historial con miscore</div>
     </div>
 
-    <h2 data-testititle="" style="font-size:clamp(30px,5.4vw,52px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin-bottom:24px;text-wrap:balance;max-width:18ch">Como ellos, empieza a construir tu historial.</h2>
+    <h2 data-testititle="" data-sec-title="" style="font-size:clamp(30px,5.4vw,52px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin-bottom:24px;text-wrap:balance;max-width:18ch">Como ellos, empieza a construir tu historial.</h2>
 
     <div data-testichips="" role="tablist" aria-label="Perfiles de usuarios" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px">
       <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5">
@@ -1866,7 +1871,7 @@ svg{display:block}
   <div data-listo-container="" style="animation:revealIn .6s var(--ease) both;animation-timeline:view();animation-range:entry 0% cover 22%">
     <div style="margin-bottom:40px" data-listo-title="">
       <div style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:18px">Cómo funciona</div>
-      <h2 style="font-size:clamp(32px,4.2vw,54px);letter-spacing:-.03em;text-wrap:balance">Listo en menos de dos minutos.</h2>
+      <h2 data-sec-title="" style="font-size:clamp(32px,4.2vw,54px);letter-spacing:-.03em;text-wrap:balance">Listo en menos de dos minutos.</h2>
     </div>
     <div data-listo-band="" style="background:linear-gradient(155deg,var(--primary),var(--primary-700));border-radius:var(--r-band);padding:24px;box-shadow:0 28px 56px -18px rgba(22,93,255,.4),inset 0 1px 0 rgba(255,255,255,.25)">
     <div data-comogrid="" data-listo-grid="" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
@@ -1919,7 +1924,7 @@ svg{display:block}
     <svg aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.5"><g fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="1.5"><circle cx="1080" cy="470" r="260"></circle><circle cx="1080" cy="470" r="380"></circle><circle cx="170" cy="70" r="300"></circle></g></svg>
     <div aria-hidden="true" style="position:absolute;left:clamp(24px,4vw,56px);bottom:clamp(24px,4vw,52px);width:150px;height:70px;background-image:radial-gradient(rgba(255,255,255,.28) 1.4px, transparent 1.4px);background-size:17px 17px;pointer-events:none"></div>
     <div data-ctagrid="" style="position:relative;display:grid;grid-template-columns:1.05fr 1px 0.9fr;gap:clamp(36px,4.5vw,64px);align-items:center">
-      <h2 style="font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.035em;color:#fff;max-width:11ch">Empieza con lo que ya haces todos los días.</h2>
+      <h2 data-sec-title="" style="font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.035em;color:#fff;max-width:11ch">Empieza con lo que ya haces todos los días.</h2>
       <div data-ctadiv="" style="align-self:stretch;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.28) 18%,rgba(255,255,255,.28) 82%,transparent);margin:8px 0"></div>
       <div style="display:flex;flex-direction:column;align-items:center;text-align:center">
         <p style="font-size:19px;line-height:1.5;color:rgba(255,255,255,.82);max-width:34ch;margin-bottom:32px">Sin apps. Sin fricción. Solo tu WhatsApp y menos de dos minutos.</p>
@@ -1941,7 +1946,7 @@ svg{display:block}
   <div data-faq-outer="" style="display:flex;flex-direction:column">
     <div data-faq-title="">
       <div style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:18px">Preguntas frecuentes</div>
-      <h2 style="font-size:clamp(30px,3.4vw,40px);margin-bottom:16px">Todo lo que hay que saber antes de empezar.</h2>
+      <h2 data-sec-title="" style="font-size:clamp(30px,3.4vw,40px);margin-bottom:16px">Todo lo que hay que saber antes de empezar.</h2>
     </div>
     <div data-faq-band="" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:inset 0 1px 0 rgba(255,255,255,.6)">
     <div data-faq-container="" style="padding:8px 0">
