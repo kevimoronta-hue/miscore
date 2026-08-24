@@ -3134,8 +3134,8 @@ class Component extends DCLogic {
       onSubmit: () => {
         if (this.state.loading || this.state.submitted) return; // anti double-envoi
         if (digits.length !== 10) { this.setState({ error: true, netError: false }); return; }
-        // Ouvre WhatsApp vers le numero officiel miscore ; le numero saisi part dans le message.
-        try { window.open("https://wa.me/18098416564?text=" + encodeURIComponent("Hola miscore, quiero empezar a construir mi historial. Mi WhatsApp: +1" + digits), "_blank"); } catch (e) {}
+        // Lien WhatsApp OFFICIEL miscore : destination = 18098416564, message officiel preremplis.
+        try { window.open("https://api.whatsapp.com/send/?phone=18098416564&text=" + encodeURIComponent("Quiero empezar a usar miscore") + "&type=phone_number&app_absent=0", "_blank"); } catch (e) {}
         this.setState({ loading: true, error: false, netError: false });
         const done = () => {
           this.setState({ loading: false, submitted: true, toast: true });
