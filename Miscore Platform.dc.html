@@ -3344,15 +3344,29 @@ class Component extends DCLogic {
       if (e.target.closest("#miFsBtn")) {
         const box = document.getElementById("miVideoContainer");
         if (!box) return;
+        // Fallback iOS Safari : l'API Fullscreen sur un element n'existe pas,
+        // seul le <video> natif supporte webkitEnterFullscreen.
+        const iosVideoFs = function(){
+          const vid = box.querySelector("video");
+          if (vid && vid.webkitEnterFullscreen) { try { vid.webkitEnterFullscreen(); } catch(_){} }
+        };
         try {
           const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
           if (fsEl) {
-            (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+            const exit = document.exitFullscreen || document.webkitExitFullscreen;
+            if (exit) exit.call(document);
           } else {
-            (box.requestFullscreen || box.webkitRequestFullscreen).call(box);
+            const req = box.requestFullscreen || box.webkitRequestFullscreen || box.webkitRequestFullScreen;
+            if (req) {
+              const p = req.call(box);
+              if (p && p.catch) p.catch(iosVideoFs); // promesse rejetee -> fallback
+            } else {
+              iosVideoFs();
+            }
           }
         } catch(err) {
           console.error("[FULLSCREEN] ERROR:", err);
+          iosVideoFs();
         }
       }
     });
