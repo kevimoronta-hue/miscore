@@ -3346,8 +3346,11 @@ class Component extends DCLogic {
         if (!box) return;
         // Fallback iOS Safari : l'API Fullscreen sur un element n'existe pas,
         // seul le <video> natif supporte webkitEnterFullscreen.
+        // La <video> Wistia vit dans le SHADOW DOM du web component (pas d'iframe,
+        // pas dans le DOM leger) : box.querySelector("video") ne la trouve pas.
         const iosVideoFs = function(){
-          const vid = box.querySelector("video");
+          const wp = document.getElementById("heroVideoPlayer");
+          const vid = (wp && wp.shadowRoot && wp.shadowRoot.querySelector("video")) || box.querySelector("video");
           if (vid && vid.webkitEnterFullscreen) { try { vid.webkitEnterFullscreen(); } catch(_){} }
         };
         try {
